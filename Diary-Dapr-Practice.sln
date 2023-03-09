@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFront", "MvcFront\MvcFront.csproj", "{63426E11-288C-4C85-9ACD-DF16D3EEFB00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiaryOrdersApi", "DiaryOrdersApi\DiaryOrdersApi.csproj", "{788E4E1A-9A5A-4C0C-AC90-99104BFC52DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{63426E11-288C-4C85-9ACD-DF16D3EEFB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63426E11-288C-4C85-9ACD-DF16D3EEFB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63426E11-288C-4C85-9ACD-DF16D3EEFB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788E4E1A-9A5A-4C0C-AC90-99104BFC52DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788E4E1A-9A5A-4C0C-AC90-99104BFC52DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788E4E1A-9A5A-4C0C-AC90-99104BFC52DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788E4E1A-9A5A-4C0C-AC90-99104BFC52DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
