@@ -9,19 +9,20 @@ using OrdersApi.Persistence;
 namespace OrdersApi.Controllers;
 
 [ApiController]
-public class DiaryOrdersController:ControllerBase
+public class DiaryOrdersController : ControllerBase
 {
     private readonly ILogger<DiaryOrdersController> _logger;
     private readonly IDiaryOrderRepository _diaryOrderRepository;
     private readonly DaprClient _daprClient;
 
-    public DiaryOrdersController(ILogger<DiaryOrdersController> logger, IDiaryOrderRepository diaryOrderRepository, DaprClient daprClient)
+    public DiaryOrdersController(ILogger<DiaryOrdersController> logger, IDiaryOrderRepository diaryOrderRepository,
+        DaprClient daprClient)
     {
         _logger = logger;
         _diaryOrderRepository = diaryOrderRepository;
         _daprClient = daprClient;
     }
-    
+
     [Route("DiaryItemReceived")]
     [HttpPost]
     [Topic("eventbus", "DiaryItemReceivedEvent")]
@@ -34,7 +35,7 @@ public class DiaryOrdersController:ControllerBase
         }
 
         _logger.LogInformation("DiaryItemReceivedEvent received");
-        
+
         var orderExists = await _diaryOrderRepository.GetDiaryOrderAsync(command.DiaryId)!;
 
         if (orderExists is null)
@@ -50,8 +51,9 @@ public class DiaryOrdersController:ControllerBase
                 Status = Status.Registered,
             });
 
-            await _daprClient.PublishEventAsync("eventbus", "DiaryOrderRegisteredEvent"
-                , new DiaryOrderRegisteredEvent(command.DiaryId, command.Title, command.UserEmail));
+            await _daprClient.PublishEventAsync("eventbus", "DiaryOrderRegisteredEvent",
+                new DiaryOrderRegisteredEvent(command.DiaryId, command.Title, command.UserEmail, command.ContentItem,
+                    command.FeelingScore));
         }
 
         _logger.LogInformation("DiaryItemReceivedEvent published");

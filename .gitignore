@@ -4,3 +4,5 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 DiaryOrdersApi/appsettings.Development.json
+
+DiaryApi/appsettings.Development.json
