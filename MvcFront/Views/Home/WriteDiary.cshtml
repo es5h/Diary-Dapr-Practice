@@ -30,5 +30,12 @@
             <textarea asp-for="Content" class="form-control" rows="10"></textarea>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-10">
+            <h3>오늘의 기분을 점수로 표현해주세요.(100점 만점)</h3>
+            <label asp-for="FeelingScore"></label>
+            <input asp-for="FeelingScore" class="form-control" />
+        </div>
+    </div>
     <input type="submit" class="btn btn-info" value="생성" />
 </form>
