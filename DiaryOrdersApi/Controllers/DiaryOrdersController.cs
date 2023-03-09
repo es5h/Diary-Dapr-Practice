@@ -49,13 +49,9 @@ public class DiaryOrdersController:ControllerBase
                 CreatedAt = DateTime.Now,
                 Status = Status.Registered,
             });
-            
-            await _daprClient.PublishEventAsync("eventbus", "DiaryOrderRegisteredEvent", new DiaryOrderRegisteredEvent()
-            { 
-                DiaryId = command.DiaryId,
-                Title = command.Title,
-                UserEmail = command.UserEmail,
-            });
+
+            await _daprClient.PublishEventAsync("eventbus", "DiaryOrderRegisteredEvent"
+                , new DiaryOrderRegisteredEvent(command.DiaryId, command.Title, command.UserEmail));
         }
 
         _logger.LogInformation("DiaryItemReceivedEvent published");

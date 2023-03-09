@@ -16,3 +16,6 @@ dotnet ef database update
 IList Json 으로 바인드
 https://stackoverflow.com/questions/44829824/how-to-store-json-in-an-entity-field-with-ef-core
 
+```shell
+dapr run --app-id orderapi --app-port 5003 --dapr-http-port 50003 dotnet run --resources-path  "../components"
+```
