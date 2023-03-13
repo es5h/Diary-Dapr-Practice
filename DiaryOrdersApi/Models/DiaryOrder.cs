@@ -16,6 +16,6 @@ public class DiaryOrder
     public IEnumerable<string?>? ContentItem { get; init; }
     public int FeelingScore { get; init; }
     public DateTime CreatedAt { get; init; }
-    public Status Status { get; init; }
-    public List<DiaryOrderDetail> DiaryOrderDetails { get; init; }
+    public Status Status { get; set; }
+    public List<DiaryOrderDetail> DiaryOrderDetails { get; set; }
 }

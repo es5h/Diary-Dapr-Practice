@@ -3,7 +3,7 @@
 public enum Status
 {
     Registered,
-    InProgress,
+    Processed,
     Completed,
     Cancelled
 }

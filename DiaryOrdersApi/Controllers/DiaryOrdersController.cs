@@ -2,6 +2,7 @@
 using Dapr.Client;
 using Microsoft.AspNetCore.Mvc;
 using MvcFront.Commands;
+using OrdersApi.Commands;
 using OrdersApi.Events;
 using OrdersApi.Models;
 using OrdersApi.Persistence;
@@ -57,6 +58,43 @@ public class DiaryOrdersController : ControllerBase
         }
 
         _logger.LogInformation("DiaryItemReceivedEvent published");
+        return Ok();
+    }
+
+    [Route("DiaryOrderProcessed")]
+    [HttpPost]
+    [Topic("eventbus", "DiaryOrderProcessedEvent")]
+    public async Task<IActionResult> DiaryOrderProcessed(OrderStatusChangedToProcessedCommand command)
+    {
+        if (command?.DiaryId is null)
+        {
+            return BadRequest();
+        }
+
+        _logger.LogInformation("DiaryOrderProcessedEvent received");
+
+        var order = await _diaryOrderRepository.GetDiaryOrderAsync(command.DiaryId)!;
+
+        if (order is null)
+        {
+            return NotFound();
+        }
+
+        order.Status = Status.Processed;
+        order.DiaryOrderDetails = new List<DiaryOrderDetail>
+        {
+            new()
+            {
+                DiaryId = command.DiaryId,
+                Title = order.Title,
+                GeneratedContent = command.GeneratedContent,
+                CreatedAt = DateTime.Now
+            }
+        };
+        
+        _diaryOrderRepository.UpdateDiaryOrder(order);
+
+        _logger.LogInformation("DiaryOrderProcessedEvent processed");
         return Ok();
     }
 }

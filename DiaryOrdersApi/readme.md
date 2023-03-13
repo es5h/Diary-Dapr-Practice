@@ -19,3 +19,7 @@ https://stackoverflow.com/questions/44829824/how-to-store-json-in-an-entity-fiel
 ```shell
 dapr run --app-id orderapi --app-port 5003 --dapr-http-port 50003 dotnet run --resources-path  "../components"
 ```
+
+```shell
+docker run -p 1080:1080 -p 1025:1025 maildev/maildev
+```

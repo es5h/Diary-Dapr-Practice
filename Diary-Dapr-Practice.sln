@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiaryOrdersApi", "DiaryOrde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiaryApi", "DiaryApi\DiaryApi.csproj", "{5333342B-D7B9-4E20-8C9A-558858BE40C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationApi", "NotificationApi\NotificationApi.csproj", "{D61931BE-1CEA-4895-9897-A513C4FD8D40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5333342B-D7B9-4E20-8C9A-558858BE40C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5333342B-D7B9-4E20-8C9A-558858BE40C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5333342B-D7B9-4E20-8C9A-558858BE40C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61931BE-1CEA-4895-9897-A513C4FD8D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61931BE-1CEA-4895-9897-A513C4FD8D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61931BE-1CEA-4895-9897-A513C4FD8D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61931BE-1CEA-4895-9897-A513C4FD8D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

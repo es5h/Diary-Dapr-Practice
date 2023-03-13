@@ -39,7 +39,7 @@ public class DiaryController : ControllerBase
             return BadRequest();
         }
         
-        StateEntry<List<ProcessOrderCommand>> ordersState = await _daprClient.GetStateEntryAsync<List<ProcessOrderCommand>>("redisstore", "orders");
+        var ordersState = await _daprClient.GetStateEntryAsync<List<ProcessOrderCommand>>("redisstore", "orders");
         var orders = ordersState.Value ?? new List<ProcessOrderCommand>();
         orders.Add(command);
         await _daprClient.SaveStateAsync("redisstore", "orders", orders);
@@ -69,7 +69,7 @@ public class DiaryController : ControllerBase
 
         ordersState.Value.Remove(firstOrder);
 
-        await _daprClient.SaveStateAsync("redisstorex   ", "orders", ordersState.Value);
+        await _daprClient.SaveStateAsync("redisstore", "orders", ordersState.Value);
         
         _logger.LogInformation("Cron job finished and the count of orders is {count}", ordersState.Value.Count);
 
