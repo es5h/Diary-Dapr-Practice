@@ -8,6 +8,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "dapr": {
+      "commandName": "Executable",
+      "workingDirectory": "$(ProjectDir)",
+      "executablePath": "dapr.exe",
+      "commandLineArgs": "run --app-id mvcfront --resources-path ../components --app-port 5002 --dapr-http-port 50002  -- dotnet run --project ."
     }
   }
 }

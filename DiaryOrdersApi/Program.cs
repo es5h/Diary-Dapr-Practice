@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using OrdersApi.Persistence;
 
@@ -14,6 +15,9 @@ builder.Services.AddControllers().AddDapr();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 var app = builder.Build();
+#if DEBUG
+Debugger.Launch();
+#endif
 
 app.UseCloudEvents();
 app.UseRouting();

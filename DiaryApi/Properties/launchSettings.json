@@ -8,6 +8,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "dapr": {
+      "commandName": "Executable",
+      "workingDirectory": "$(ProjectDir)",
+      "executablePath": "dapr.exe",
+      "commandLineArgs": "run --app-id diaryapi --resources-path ../components --app-port 5004 --dapr-http-port 50004  -- dotnet run --project ."
     }
   }
 }

@@ -7,6 +7,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "dapr": {
+      "commandName": "Executable",
+      "workingDirectory": "$(ProjectDir)",
+      "executablePath": "dapr.exe",
+      "commandLineArgs": "run --app-id orderapi --resources-path ../components --app-port 5003 --dapr-http-port 50003  -- dotnet run --project ."
     }
   }
 }

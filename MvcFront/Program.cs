@@ -1,9 +1,15 @@
+using System.Diagnostics;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddDapr();
 
 var app = builder.Build();
+
+#if DEBUG
+Debugger.Launch();
+#endif
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

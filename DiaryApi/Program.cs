@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using DiaryApi;
 using OpenAI.GPT3.Extensions;
 using OpenAI.GPT3.Interfaces;
@@ -19,6 +20,9 @@ builder.Services.AddOpenAIService(settings =>
 builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
 
 var app = builder.Build();
+#if DEBUG
+Debugger.Launch();
+#endif
 
 app.UseCloudEvents();
 app.UseAuthorization();
