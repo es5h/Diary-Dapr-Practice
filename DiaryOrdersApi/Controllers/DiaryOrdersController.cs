@@ -97,4 +97,29 @@ public class DiaryOrdersController : ControllerBase
         _logger.LogInformation("DiaryOrderProcessedEvent processed");
         return Ok();
     }
+
+    [Route("DiaryOrderDispatched")]
+    [HttpPost]
+    [Topic("eventbus", "DiaryOrderDispatchedEvent")]
+    public async Task<IActionResult> DiaryOrderDispatched(OrderStatusChangedToDispatchedCommand command)
+    {
+        if (command?.DiaryId is null)
+        {
+            return BadRequest();
+        }
+        
+        _logger.LogInformation("DiaryOrderDispatchedEvent received");
+        var order = await _diaryOrderRepository.GetDiaryOrderAsync(command.DiaryId)!;
+
+        if (order is null)
+        {
+            return NotFound();
+        }
+
+        order.Status = Status.Dispatched;
+        await _diaryOrderRepository.UpdateDiaryOrder(order);
+
+        _logger.LogInformation("DiaryOrderDispatchedEvent processed");
+        return Ok();
+    }
 }

@@ -7,7 +7,7 @@ public interface IDiaryOrderRepository
 {
     public Task<DiaryOrder?>? GetDiaryOrderAsync(Guid diaryId);
     public Task RegisterDiaryOrder(DiaryOrder diaryOrder);
-    public void UpdateDiaryOrder(DiaryOrder diaryOrder);
+    public Task UpdateDiaryOrder(DiaryOrder diaryOrder);
 }
 
 public class DiaryOrderRepository : IDiaryOrderRepository
@@ -30,9 +30,9 @@ public class DiaryOrderRepository : IDiaryOrderRepository
         await _context.SaveChangesAsync();
     }
 
-    public void UpdateDiaryOrder(DiaryOrder diaryOrder)
+    public async Task UpdateDiaryOrder(DiaryOrder diaryOrder)
     {
         _context.Entry(diaryOrder).State = EntityState.Modified;
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 }

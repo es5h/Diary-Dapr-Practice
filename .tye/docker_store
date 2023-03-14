@@ -1,0 +1,10 @@
+{"container":"diaryordersql_51fe14bc-1"}
+{"container":"seq_7f90c790-4"}
+{"container":"mvcfront-proxy_6257c688-0"}
+{"container":"diaryordersapi-proxy_064d6cb7-1"}
+{"container":"diaryapi-proxy_b3137c62-a"}
+{"container":"notificationapi-proxy_a866da67-9"}
+{"container":"mvcfront-dapr-proxy_d04ce568-1"}
+{"container":"diaryordersapi-dapr-proxy_da0f69cd-f"}
+{"container":"diaryapi-dapr-proxy_4a03e757-d"}
+{"container":"notificationapi-dapr-proxy_2ccadc44-d"}

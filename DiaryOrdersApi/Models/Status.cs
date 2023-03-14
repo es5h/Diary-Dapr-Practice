@@ -4,6 +4,5 @@ public enum Status
 {
     Registered,
     Processed,
-    Completed,
-    Cancelled
+    Dispatched,
 }

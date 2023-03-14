@@ -7,10 +7,6 @@ builder.Services.AddControllersWithViews().AddDapr();
 
 var app = builder.Build();
 
-#if DEBUG
-Debugger.Launch();
-#endif
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

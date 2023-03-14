@@ -20,9 +20,6 @@ builder.Services.AddOpenAIService(settings =>
 builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
 
 var app = builder.Build();
-#if DEBUG
-Debugger.Launch();
-#endif
 
 app.UseCloudEvents();
 app.UseAuthorization();

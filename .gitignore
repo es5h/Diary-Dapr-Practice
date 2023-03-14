@@ -6,3 +6,5 @@ riderModule.iml
 DiaryOrdersApi/appsettings.Development.json
 
 DiaryApi/appsettings.Development.json
+
+NotificationApi/appsettings.Development.json

@@ -1,0 +1,45 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: diary-dapr-practice
+extensions:
+  - name: dapr
+    log-level: debug
+    components-path: ./components
+  - name: seq
+    log-path: ./.logs
+services:
+- name: mvcfront
+  project: MvcFront/MvcFront.csproj
+  bindings:
+    - protocol: http
+      port: 5002
+- name: diaryordersapi
+  project: DiaryOrdersApi/DiaryOrdersApi.csproj
+  bindings:
+    - protocol: http
+      port: 5003
+- name: diaryapi
+  project: DiaryApi/DiaryApi.csproj
+  bindings:
+    - protocol: http
+      port: 5004
+- name: notificationapi
+  project: NotificationApi/NotificationApi.csproj
+  bindings:
+    - protocol: http
+      port: 5016
+- name: diaryordersql
+  image: mcr.microsoft.com/mssql/server:2022-latest
+  env:
+    - name: SA_PASSWORD
+      value: "Password123!"
+    - name: ACCEPT_EULA
+      value: "Y"
+  bindings:
+    - port: 1456
+      containerPort: 1433
+      connectionString: Server=${host}, ${port};Database=DiaryOrder;User Id=sa;Password=${env:SA_PASSWORD};multipleactiveresultsets=true
