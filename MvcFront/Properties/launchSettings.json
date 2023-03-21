@@ -4,7 +4,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5002",
+      "applicationUrl": "http://localhost:5012",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -13,7 +13,7 @@
       "commandName": "Executable",
       "workingDirectory": "$(ProjectDir)",
       "executablePath": "dapr.exe",
-      "commandLineArgs": "run --app-id mvcfront --resources-path ../components --app-port 5002 --dapr-http-port 50002  -- dotnet run --project ."
+      "commandLineArgs": "run --app-id mvcfront --resources-path ../components --app-port 5012 --dapr-http-port 50012  -- dotnet run --project ."
     }
   }
 }
