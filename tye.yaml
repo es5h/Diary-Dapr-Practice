@@ -16,7 +16,7 @@ services:
   project: MvcFront/MvcFront.csproj
   bindings:
     - protocol: http
-      port: 5002
+      port: 5012
 - name: diaryordersapi
   project: DiaryOrdersApi/DiaryOrdersApi.csproj
   bindings:
