@@ -11,14 +11,10 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: |
-          echo "test url : ${{ secrets.TEST_REPOSITORY_URL }}"
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
       - name: Sync up to SourceCommit
         uses: es5h/sync-up-to-sourcecommit-action@test18
         with:
