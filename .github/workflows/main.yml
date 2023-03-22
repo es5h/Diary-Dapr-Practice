@@ -22,4 +22,4 @@ jobs:
           ssh_private_key: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.TEST_SSH_PUBLIC_KEY }}
           ssh_key: ${{ secrets.TEST_SSH_KEY }}
-          keyscan: ${{ secrets.TEST_KEYSCAN }}
+          key_scan: ${{ secrets.TEST_KEYSCAN }}
