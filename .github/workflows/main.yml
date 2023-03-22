@@ -22,7 +22,8 @@ jobs:
       - name: Sync up to SourceCommit
         uses: es5h/sync-up-to-sourcecommit-action@test13
         with:
-          repository_url: ssh://devtools.ncloud.com/3045698/Dairy-Dapr-Practice.git
+          repository_url: ${{ secrets.REPOSITORY_URL }}
           ssh_private_key: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.TEST_SSH_PUBLIC_KEY }}
           ssh_key: ${{ secrets.TEST_SSH_KEY }}
           
