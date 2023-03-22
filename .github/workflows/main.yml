@@ -15,17 +15,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: sshaction
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.TEST_REPOSITORY_URL }}
-          username: ${{ secrets.TEST_SSH_KEY }}
-          key: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
       - name: Sync up to SourceCommit
-        uses: es5h/sync-up-to-sourcecommit-action@test31
+        uses: es5h/sync-up-to-sourcecommit-action@test32
         with:
           repository_url: ${{ secrets.TEST_REPOSITORY_URL }}
           ssh_private_key: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.TEST_SSH_PUBLIC_KEY }}
           ssh_key: ${{ secrets.TEST_SSH_KEY }}
-          key_scan: ${{ secrets.TEST_KEYSCAN }}
