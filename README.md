@@ -11,3 +11,5 @@ tye run
 ```
 tye run --debug .\DiaryApi\DiaryApi.csproj
 ```
+
+test
