@@ -21,4 +21,3 @@ jobs:
           repository_url: ${{ secrets.TEST_REPOSITORY_URL }}
           ssh_private_key: ${{ secrets.TEST_SSH_PRIVATE_KEY }}
           ssh_key: ${{ secrets.TEST_SSH_KEY }}
-          host_url: 'devtools.ncloud.com'
