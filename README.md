@@ -14,3 +14,4 @@ tye run --debug .\DiaryApi\DiaryApi.csproj
 
 test
 test
+test
